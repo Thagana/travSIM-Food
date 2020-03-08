@@ -1,0 +1,22 @@
+{
+  "name": "travsim",
+  "version": "0.0.0",
+  "description": "travSIM Food App",
+  "author": null,
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "devDependencies": {
+    "babel-preset-expo": "^7.0.0"
+  },
+  "dependencies": {
+    "expo": "^33.0.0",
+    "react": "16.8.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.1.tar.gz",
+    "moment": "latest",
+    "react-navigation": "3.11.0",
+    "react-native-paper": "2.15.2",
+    "react-native-share": "2.0.0",
+    "@expo/vector-icons": "10.0.3",
+    "easy-peasy": "latest"
+  }
+}
