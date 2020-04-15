@@ -1,10 +1,10 @@
 
 
 
-## travSIM Foods
+## Order Up
 
-### About travSIM Food
-travSIM Food is a food ordering application written in React Native and it support there platform Android, IOS and Web
+### About Order Up
+Oder Up is food ordering application written in react native.
 
 
 ### Usage
