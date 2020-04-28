@@ -2,8 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 4181,
-  "expoServerNgrokUrl": "https://dc-tv8.thagana.order-up.exp.direct",
-  "packagerNgrokUrl": "https://packager.dc-tv8.thagana.order-up.exp.direct",
-  "ngrokPid": 4196
+  "packagerPid": 41825,
+  "expoServerNgrokUrl": "https://wk-xwv.thagana.order-up.exp.direct",
+  "packagerNgrokUrl": "https://packager.wk-xwv.thagana.order-up.exp.direct",
+  "ngrokPid": 41839,
+  "webpackServerPort": null
 }
