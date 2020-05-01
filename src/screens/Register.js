@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { Input } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
 import { useStoreState, useStoreActions } from "easy-peasy";
@@ -23,7 +29,8 @@ const RegisterRoute = ({ navigation }) => {
     navigation.navigate("Login");
   };
   return (
-    <View
+    <ImageBackground
+      source={require("../assets/cuz_7.jpg")}
       style={{
         flex: 1,
         justifyContent: "center",
@@ -32,32 +39,65 @@ const RegisterRoute = ({ navigation }) => {
     >
       <Input
         placeholder="First Name"
+        placeholderTextColor="#fff"
+        inputStyle={{
+          paddingHorizontal: 10,
+        }}
         onChangeText={(val) => setUsername(val)}
-        leftIcon={<AntDesign name="user" size={24} color="black" />}
+        leftIcon={<AntDesign name="user" size={24} color="#fff" />}
       />
       <Input
+        placeholderTextColor="#fff"
         onChangeText={(val) => setLastName(val)}
         placeholder="Last Name"
-        leftIcon={<AntDesign name="user" size={24} color="black" />}
+        inputStyle={{
+          paddingHorizontal: 10,
+        }}
+        leftIcon={<AntDesign name="user" size={24} color="#fff" />}
       />
       <Input
         placeholder="Email"
+        placeholderTextColor="#fff"
+        inputStyle={{
+          paddingHorizontal: 10,
+        }}
         onChangeText={(val) => setEmail(val)}
-        leftIcon={<AntDesign name="mail" size={24} color="black" />}
+        leftIcon={<AntDesign name="mail" size={24} color="#fff" />}
       />
       <Input
         placeholder="Password"
         onChangeText={(val) => setPassword(val)}
+        inputStyle={{
+          paddingHorizontal: 10,
+        }}
         secureTextEntry
-        leftIcon={<AntDesign name="key" size={24} color="black" />}
+        placeholderTextColor="#fff"
+        leftIcon={<AntDesign name="key" size={24} color="#fff" />}
       />
+      <TouchableOpacity
+        style={{
+          marginVertical: 10,
+        }}
+        onPress={() => {
+          navigation.navigate("Login");
+        }}
+      >
+        <Text
+          style={{
+            color: "#dd3e54",
+            fontWeight: "bold",
+          }}
+        >
+          Already have an account?
+        </Text>
+      </TouchableOpacity>
       <TouchableOpacity
         style={{
           backgroundColor: "#dd3e54",
           paddingHorizontal: 100,
           paddingVertical: 10,
           borderRadius: 20,
-          marginVertical: 7,
+          marginVertical: 10,
         }}
         onPress={() => {
           handleregister();
@@ -72,7 +112,7 @@ const RegisterRoute = ({ navigation }) => {
           Enter
         </Text>
       </TouchableOpacity>
-    </View>
+    </ImageBackground>
   );
 };
 

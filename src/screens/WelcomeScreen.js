@@ -93,6 +93,7 @@ const WelcomeScreen = ({ navigation }) => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
+          id="SignUpButton"
           style={{
             backgroundColor: "#ffd79d",
             paddingHorizontal: 40,

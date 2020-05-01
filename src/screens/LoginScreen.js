@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { Input } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
 import { useStoreState, useStoreActions, action } from "easy-peasy";
@@ -20,7 +26,8 @@ const LoginScreen = ({ navigation }) => {
     }
   };
   return (
-    <View
+    <ImageBackground
+      source={require("../assets/cuz_6.jpg")}
       style={{
         flex: 1,
         justifyContent: "center",
@@ -29,22 +36,47 @@ const LoginScreen = ({ navigation }) => {
     >
       <Input
         placeholder="Email"
+        placeholderTextColor="#fff"
         onChangeText={(val) => setEmail(val)}
-        leftIcon={<AntDesign name="mail" size={24} color="black" />}
+        inputStyle={{
+          paddingHorizontal: 10,
+        }}
+        leftIcon={<AntDesign name="mail" size={24} color="#fff" />}
       />
       <Input
         placeholder="Password"
+        placeholderTextColor="#fff"
+        inputStyle={{
+          paddingHorizontal: 10,
+        }}
         onChangeText={(val) => setPassword(val)}
         secureTextEntry
-        leftIcon={<AntDesign name="key" size={24} color="black" />}
+        leftIcon={<AntDesign name="key" size={24} color="#fff" />}
       />
+      <TouchableOpacity
+        style={{
+          marginVertical: 10,
+        }}
+        onPress={() => {
+          navigation.navigate("SignUp");
+        }}
+      >
+        <Text
+          style={{
+            color: "#dd3e54",
+            fontWeight: "bold",
+          }}
+        >
+          Don't have an account?
+        </Text>
+      </TouchableOpacity>
       <TouchableOpacity
         style={{
           backgroundColor: "#dd3e54",
           paddingHorizontal: 100,
           paddingVertical: 10,
           borderRadius: 20,
-          marginVertical: 7,
+          marginVertical: 18,
         }}
         onPress={() => {
           handlelogin();
@@ -59,7 +91,7 @@ const LoginScreen = ({ navigation }) => {
           Enter
         </Text>
       </TouchableOpacity>
-    </View>
+    </ImageBackground>
   );
 };
 
