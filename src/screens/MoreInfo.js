@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
 import { Rating, AirbnbRating } from "react-native-ratings";
 import { ScrollView } from "react-native-gesture-handler";
 import MapView from "react-native-maps";
+import BottomSheet from "reanimated-bottom-sheet";
 
 const MoreInfo = (props) => {
   const [item, setItem] = useState(props.route.params.payload);
@@ -80,7 +81,11 @@ const MoreInfo = (props) => {
           </View>
         </View>
         <View>
-          <View>
+          <View
+            style={{
+              padding: 10,
+            }}
+          >
             <Text
               style={{
                 color: "#dd3e54",
@@ -147,7 +152,7 @@ const MoreInfo = (props) => {
             <Text
               style={{
                 color: "#dd3e54",
-                fontSize: 16,
+                fontSize: 18,
               }}
             >
               Similar
@@ -267,8 +272,8 @@ const MoreInfo = (props) => {
               height: 200,
             }}
             initialRegion={{
-              latitude: 28.041321,
-              longitude: -26.2773,
+              latitude: 37.78825,
+              longitude: -122.4324,
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
             }}
