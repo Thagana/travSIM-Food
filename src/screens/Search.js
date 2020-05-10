@@ -1,10 +1,75 @@
 import React, { useState } from "react";
-import { View, Text, Platform, ScrollView, Image } from "react-native";
+import {
+  View,
+  Text,
+  Platform,
+  ScrollView,
+  Image,
+  SafeAreaView,
+} from "react-native";
 import { SearchBar } from "react-native-elements";
+import { FlatList } from "react-native-gesture-handler";
+
+const DATA = [
+  {
+    id: 1,
+    name: "Funeral",
+    image: "https://picsum.photos/200",
+  },
+  {
+    id: 2,
+    name: "Wedding",
+    image: "https://picsum.photos/300",
+  },
+  {
+    id: 3,
+    name: "Functions",
+    image: "https://picsum.photos/400",
+  },
+  {
+    id: 4,
+    name: "Meetings",
+    image: "https://picsum.photos/500",
+  },
+  {
+    id: 5,
+    name: "Parties",
+    image: "https://picsum.photos/500",
+  },
+  {
+    id: 6,
+    name: "Funeral",
+    image: "https://picsum.photos/500",
+  },
+];
+const Card = ({ name, image }) => (
+  <View
+    style={{
+      backgroundColor: "#fff",
+      borderRadius: 20,
+      marginVertical: 3,
+      marginHorizontal: 5,
+    }}
+  >
+    <Image
+      source={{ uri: image }}
+      style={{
+        width: 100,
+        height: 100,
+        borderRadius: 20,
+        marginVertical: 2,
+        marginHorizontal: 4,
+      }}
+    />
+    <View>
+      <Text>{name}</Text>
+    </View>
+  </View>
+);
 const Search = () => {
   const [term, setTerm] = useState("");
   return (
-    <View
+    <SafeAreaView
       style={{
         flex: 1,
       }}
@@ -18,118 +83,30 @@ const Search = () => {
           onChangeText={(val) => setTerm(val)}
         />
       </View>
-      <View>
-        <Text>Recommended</Text>
+      <View
+        style={{
+          paddingHorizontal: 10,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 18,
+          }}
+        >
+          Recommended
+        </Text>
       </View>
       <View>
-        <ScrollView horizontal={true}>
-          <View
-            style={{
-              backgroundColor: "#fff",
-              borderRadius: 20,
-              marginVertical: 3,
-              marginHorizontal: 2,
-            }}
-          >
-            <Image
-              source={{ uri: "https://picsum.photos/400" }}
-              style={{
-                width: 100,
-                height: 100,
-                borderRadius: 20,
-                marginVertical: 2,
-                marginHorizontal: 4,
-              }}
-            />
-            <View>
-              <Text>Breakfst</Text>
-            </View>
-          </View>
-          <View
-            style={{
-              borderRadius: 20,
-              backgroundColor: "#fff",
-              marginVertical: 2,
-              marginHorizontal: 4,
-            }}
-          >
-            <Image
-              source={{ uri: "https://picsum.photos/500" }}
-              style={{
-                width: 100,
-                height: 100,
-                borderRadius: 20,
-                marginVertical: 2,
-                marginHorizontal: 4,
-              }}
-            />
-            <View>
-              <Text>Lunch</Text>
-            </View>
-          </View>
-          <View>
-            <Image
-              source={{ uri: "https://picsum.photos/400" }}
-              style={{
-                width: 100,
-                height: 100,
-                borderRadius: 20,
-                marginVertical: 2,
-                marginHorizontal: 4,
-              }}
-            />
-            <View>
-              <Text>Wedding</Text>
-            </View>
-          </View>
-          <View>
-            <Image
-              source={{ uri: "https://picsum.photos/400" }}
-              style={{
-                width: 100,
-                height: 100,
-                borderRadius: 20,
-                marginVertical: 2,
-                marginHorizontal: 4,
-              }}
-            />
-            <View>
-              <Text>Funeral</Text>
-            </View>
-          </View>
-          <View>
-            <Image
-              source={{ uri: "https://picsum.photos/400" }}
-              style={{
-                width: 100,
-                height: 100,
-                borderRadius: 20,
-                marginVertical: 2,
-                marginHorizontal: 4,
-              }}
-            />
-            <View>
-              <Text>Funeral</Text>
-            </View>
-          </View>
-          <View>
-            <Image
-              source={{ uri: "https://picsum.photos/400" }}
-              style={{
-                width: 100,
-                height: 100,
-                borderRadius: 20,
-                marginVertical: 2,
-                marginHorizontal: 4,
-              }}
-            />
-            <View>
-              <Text>Funeral</Text>
-            </View>
-          </View>
-        </ScrollView>
+        <FlatList
+          horizontal
+          data={DATA}
+          renderItem={({ item }) => (
+            <Card name={item.name} image={item.image} />
+          )}
+          keyExtractor={(item) => item.id.toString()}
+        />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
