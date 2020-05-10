@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ImageBackground,
+  AsyncStorage,
 } from "react-native";
 import { Input } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
@@ -16,12 +17,18 @@ const LoginScreen = ({ navigation }) => {
 
   const user = useStoreState((state) => state.User);
   const loggin = useStoreActions((action) => action.login);
-  const handlelogin = () => {
+  const handlelogin = async () => {
     const user = {
       email: email,
       password: password,
     };
     if (email === user.email && password === user.password) {
+      const tokenKey = "@key";
+      try {
+        await AsyncStorage.setItem(tokenKey, "#1234");
+      } catch (error) {
+        console.log(error);
+      }
       loggin();
     }
   };
