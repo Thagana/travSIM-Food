@@ -1,4 +1,5 @@
 import { action } from "easy-peasy";
+import { AsyncStorage } from "react-native";
 import { v4 as uuidv4 } from "uuid";
 
 export default {
@@ -131,5 +132,8 @@ export default {
   }),
   setUser: action((state, payload) => {
     state.User = payload;
+  }),
+  addItems: action((state, payload) => {
+    state.menu.push(payload);
   }),
 };
