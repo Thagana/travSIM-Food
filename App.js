@@ -10,6 +10,7 @@ import {
   Text,
   StatusBar,
   TouchableOpacity,
+  AsyncStorage,
 } from "react-native";
 import { TextInput } from "react-native-paper";
 import { NavigationContainer } from "@react-navigation/native";
@@ -112,6 +113,19 @@ const AuthStackScreen = (props) => {
       <AuthStack.Screen name="SignUp" component={SignUp} />
     </AuthStack.Navigator>
   );
+};
+
+const getToken = async () => {
+  try {
+    const token = AsyncStorage.getItem("@key");
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const AppStack = createStackNavigator();
