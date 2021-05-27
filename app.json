@@ -1,0 +1,12 @@
+{
+  "name": "Order-Up",
+  "displayName": "Order-Up",
+  "expo": {
+    "name": "Order-Up",
+    "slug": "Order-Up",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
